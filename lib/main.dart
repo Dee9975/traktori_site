@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lauki_web/theme.dart';
 
@@ -19,16 +20,19 @@ class MenuItem {
   });
 }
 
+String releasePath = kDebugMode ? '' : 'assets/';
+
 List<MenuItem> items = [
   MenuItem(
     name: "Plānās pankūkas ar pašmāju ievārijumiem",
-    description: "Pieejamie ievārijumi: upeņu, aveņu",
+    description:
+        "Izvēlies ievārījumu:\n\t\t\tupeņu-apelsīnu\n\t\t\tzemeņu\n\t\t\tēkšķogu\n\t\t\trabarberu-banānu",
     price: 500,
   ),
   MenuItem(
     name: "Plānās pankūkas ar sieru",
     description: " ",
-    image: "images/cheese_pancake.jpg",
+    image: "${releasePath}images/cheese_pancake.jpg",
     price: 500,
   ),
   MenuItem(
@@ -37,44 +41,62 @@ List<MenuItem> items = [
     price: 700,
   ),
   MenuItem(
-      name:
-          "Skābu kāpostu zupa pasniegta ar pašceptu sēklu maizi vai ar mizu ceptu kartupeli",
-      description: "",
-      price: 500,
-      image: "images/soup.jpg"),
+    name:
+        "Skābu kāpostu zupa pasniegta ar pašceptu sēklu maizi vai ar mizu ceptu kartupeli",
+    description: "",
+    price: 500,
+    image: "${releasePath}images/soup.jpg",
+  ),
 ];
 
 List<MenuItem> dessertItems = [
   MenuItem(
       name: "Burbuļvafeles ar saldējumu vai putukrējumu",
-      price: 600,
-      description: " ",
-      image: "images/vafele.jpg"),
+      price: 650,
+      description:
+          "Izvēlies 2 no šīm garšām:\n\t\t\tvaniļa\n\t\t\tcitronu sorberts\n\t\t\tzemeņu sorberts",
+      image: "${releasePath}images/vafele.jpg"),
   MenuItem(
-      name: "Zefīri", price: 150, description: "", image: "images/zefirs.jpg"),
+    name: "Zefīri",
+    price: 150,
+    description: "",
+    image: "${releasePath}images/zefirs.jpg",
+  ),
   MenuItem(
     name: "Makarūni",
     price: 180,
     description: "",
-    image: "images/mac.jpg",
+    image: "${releasePath}images/mac.jpg",
   ),
 ];
 
 List<MenuItem> drinksMenu = [
   MenuItem(
-    name: "Koktelis 1",
-    price: 180,
+    name: "Aveņu bazilika fizz",
+    price: 150,
     description: "",
   ),
   MenuItem(
-    name: "Koktelis 2",
-    price: 180,
+    name: "Pašmāju mohito",
+    price: 150,
     description: "",
   ),
   MenuItem(
-    name: "Koktelis 3",
-    price: 180,
+    name: "Rabarberu rozmarīna spritz",
+    price: 150,
     description: "",
+  ),
+  MenuItem(
+    name: "Krūka ar garšīgu ūdeni",
+    price: 150,
+    description: "",
+    image: "${releasePath}images/udens.jpg",
+  ),
+  MenuItem(
+    name: "Krūka ar pašmāju limonādi",
+    price: 450,
+    description:
+        "Izvēlies no šīm garšām:\n\taveņu\n\tupeņu\n\tcidoniju\n\trabarberu\n\tpiparmētru",
   ),
 ];
 
@@ -111,7 +133,7 @@ class AppView extends StatelessWidget {
         Stack(
           alignment: Alignment.topCenter,
           children: [
-            Image.asset("images/tractor.jpg"),
+            Image.asset("${releasePath}images/tractor.jpg"),
             Positioned(
               top: 16,
               child: Container(
@@ -229,16 +251,18 @@ class _MenuItemTileState extends State<MenuItemTile> {
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
                       widget.item.image!,
-                      width: MediaQuery.of(context).size.width / 2,
+                      width: 150,
                     ),
                   ),
                 ],
                 const SizedBox(
                   width: 16,
                 ),
-                Text(
-                  widget.item.description,
-                  style: const TextStyle(fontSize: 18),
+                Expanded(
+                  child: Text(
+                    widget.item.description,
+                    style: const TextStyle(fontSize: 16),
+                  ),
                 ),
               ],
             ),
