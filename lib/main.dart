@@ -82,7 +82,7 @@ List<MenuItem> drinksMenu = [
     description: "",
   ),
   MenuItem(
-    name: "Rabarberu rozmarīna spritz",
+    name: "Rabarberu rozmarīna svaigums",
     price: 150,
     description: "",
   ),
