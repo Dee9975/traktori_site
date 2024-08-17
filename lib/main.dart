@@ -98,6 +98,17 @@ List<MenuItem> drinksMenu = [
     description:
         "Izvēlies no šīm garšām:\n\taveņu\n\tupeņu\n\tcidoniju\n\trabarberu\n\tpiparmētru",
   ),
+  MenuItem(
+    name: "Kafija",
+    price: 250,
+    description: "",
+  ),
+  MenuItem(
+    name: "Ledus kafija",
+    price: 300,
+    description:
+        "Izvēlies no šiem sīrupiem:\n\t\t\tToffee Nut\n\t\t\tKarameļu\n\t\t\tFranču Vaniļas\n\t\t\tCreme Brulee",
+  ),
 ];
 
 class MyApp extends StatelessWidget {
